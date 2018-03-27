@@ -18,7 +18,7 @@
     <link rel="alternative" href="/atom.xml" title="提提的小窝" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/blogImg/lishan.jpeg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -154,13 +154,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/21/杂的文/">杂的文</a>
+      <a class="article-title" href="/2018/03/27/杂的文/">杂的文</a>
     </h1>
   
 
         
-        <a href="/2018/02/21/杂的文/" class="archive-article-date">
-  	<time datetime="2018-02-21T09:09:36.643Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-21</time>
+        <a href="/2018/03/27/杂的文/" class="archive-article-date">
+  	<time datetime="2018-03-27T15:24:14.877Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
 </a>
         
       </header>
@@ -168,11 +168,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>不知道在这个时间，还算不算是冬天，不像往日那么的冷，可天却还是黑得很早，差不多6点钟左右，天就快黑完了。    </p>
-<p>春节的法定假日就要结束了，可我的假期好像还没有结束，还有大把的时间。在这些空闲的时间中，学习抑或是玩耍，仿佛都不怎么舒适，学习让人觉得自己像个学渣一样，学得越多，越是怀疑自我，真是“学得越多，不知道的越多”，仿佛是有无穷无尽的知识需要我去学习一般。玩耍的话，好像最近打牌打得比较多，打牌这种事还是很看运气的，虽然我是个菜鸟，但是运气较好，没输钱，反倒是赢了一些钱。   </p>
-<p>闲着的时候喜欢看看动漫，一看就是停不下来，非要把它看完。最近闲着的时候，就去B站上把一些评分较高的动漫挨着看完了。    </p>
-<p>好久没写过这么长的文字了，想到高中时候写作文，每次要求写1000多字，真是每次都是把自己憋死了，东拉西扯把字数凑够，想想真是太搞笑了。    </p>
-<p>身边的大学同学有的去工作了，有的和我一样继续读研了。最近从高中同学口中，听到了以前高中同学的动态，大家关心的也变成了谁谁找了怎样的工作，一年的薪水有多少。哈哈,我还是一个穷学生,还要至少持续三年左右的时间。    </p>
-
+<p>春节的法定假日就要结束了，可我的假期好像还没有结束，还有大把的时间。在这些空闲的时间中，学习抑或是玩耍，仿佛都不怎么舒适，学习让人觉得自己像个学渣一样，学得越多，越是怀疑自我，真是“学得越多，不知道的越多”，仿佛是有无穷无尽的知识需要我去学习一般。玩耍的话，好像最近打牌打得比较多，打牌这种事还是很看运气的，虽然我是个菜鸟，但是运气较好，没输钱，反倒是赢了一些钱。<br>
+        
+          <a class="article-more-a" href="/2018/03/27/杂的文/#more">more >></a>
+        
       
 
       
@@ -195,7 +194,89 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/02/21/杂的文/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/03/27/杂的文/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-linux下编译运行bochs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/27/linux下编译运行bochs/">linux下编译运行bochs</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/27/linux下编译运行bochs/" class="archive-article-date">
+  	<time datetime="2018-03-27T15:23:13.964Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。</p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
+<li>ubuntu 16.04</li>
+<li>bochs 2.6.9</li>
+</ul>
+<h2 id="问题及解决办法"><a href="#问题及解决办法" class="headerlink" title="问题及解决办法"></a>问题及解决办法</h2><p>1.<code>gui/libgui.a(x.o): undefined reference to symbol &#39;XSetForeground&#39;</code><br>解决：控制台下输入<code>sudo apt-get install xorg-dev</code></p>
+<p>2.<code>X11/Xlib.h: No such file or directory</code><br>解决：控制台下输入<code>sudo apt-get install libx11-dev</code><br>
+        
+          <a class="article-more-a" href="/2018/03/27/linux下编译运行bochs/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/27/linux下编译运行bochs/">展开全文 >></a>
         </p>
       
 
@@ -310,6 +391,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">环境配置</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">生活</a>
               </li>
             
@@ -361,7 +446,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">本科  &amp;nbsp重庆大学&lt;br&gt;&lt;br&gt;研究生 华中科技大学&lt;br&gt;&lt;br&gt;书山有路勤为径&lt;br&gt;学海无涯苦作舟</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">我&lt;br&gt;本人&lt;br&gt;爱看书&lt;br&gt;亦爱编程 &lt;br&gt;安静话不多&lt;br&gt; 大学到研究生 &lt;br&gt; 仍是个无知的人</div>
   	  	
     	</section>
     
