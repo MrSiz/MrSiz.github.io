@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://mrsiz.github.io">
-  <title>利用python登录服务器并下载文件 | 提提的小窝</title>
+  <title>linux下编译运行bochs | 提提的小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写一个程序，需要访问服务器上的数据。最开始的时候我想的是，服务器与主机上分别放两个程序，然后通信，做数据的传输。但是感觉太麻烦了，为了简单点，然后就在网上查了相关的资料，想出了一个解决方案：主机上利用一个脚本访问服务器，通过ssh登录,然后直接去把服务器上的数据下载下来。 需要解决的问题: 如何在脚本程序中登录到服务器中 如何通过脚本在服务器上直接执行命令(非重点= =) 如何对文件的状态进">
-<meta name="keywords" content="python,ssh">
+  <meta name="description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
+<meta name="keywords" content="环境配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用python登录服务器并下载文件">
-<meta property="og:url" content="http://mrsiz.github.io/2018/04/13/利用python登录服务器并下载文件/index.html">
+<meta property="og:title" content="linux下编译运行bochs">
+<meta property="og:url" content="http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/index.html">
 <meta property="og:site_name" content="提提的小窝">
-<meta property="og:description" content="最近在写一个程序，需要访问服务器上的数据。最开始的时候我想的是，服务器与主机上分别放两个程序，然后通信，做数据的传输。但是感觉太麻烦了，为了简单点，然后就在网上查了相关的资料，想出了一个解决方案：主机上利用一个脚本访问服务器，通过ssh登录,然后直接去把服务器上的数据下载下来。 需要解决的问题: 如何在脚本程序中登录到服务器中 如何通过脚本在服务器上直接执行命令(非重点= =) 如何对文件的状态进">
-<meta property="og:updated_time" content="2018-04-13T03:28:42.923Z">
+<meta property="og:description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
+<meta property="og:updated_time" content="2018-03-27T15:23:13.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用python登录服务器并下载文件">
-<meta name="twitter:description" content="最近在写一个程序，需要访问服务器上的数据。最开始的时候我想的是，服务器与主机上分别放两个程序，然后通信，做数据的传输。但是感觉太麻烦了，为了简单点，然后就在网上查了相关的资料，想出了一个解决方案：主机上利用一个脚本访问服务器，通过ssh登录,然后直接去把服务器上的数据下载下来。 需要解决的问题: 如何在脚本程序中登录到服务器中 如何通过脚本在服务器上直接执行命令(非重点= =) 如何对文件的状态进">
+<meta name="twitter:title" content="linux下编译运行bochs">
+<meta name="twitter:description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
   
     <link rel="alternative" href="/atom.xml" title="提提的小窝" type="application/atom+xml">
   
@@ -150,45 +150,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-利用python登录服务器并下载文件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux下编译运行bochs" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      利用python登录服务器并下载文件
+      linux下编译运行bochs
     </h1>
   
 
         
-        <a href="/2018/04/13/利用python登录服务器并下载文件/" class="archive-article-date">
-  	<time datetime="2018-04-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-13</time>
+        <a href="/2018/06/20/linux下编译运行bochs/" class="archive-article-date">
+  	<time datetime="2018-06-20T12:23:30.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在写一个程序，需要访问服务器上的数据。最开始的时候我想的是，服务器与主机上分别放两个程序，然后通信，做数据的传输。但是感觉太麻烦了，为了简单点，然后就在网上查了相关的资料，想出了一个解决方案：主机上利用一个脚本访问服务器，通过ssh登录,然后直接去把服务器上的数据下载下来。</p>
-<h3 id="需要解决的问题"><a href="#需要解决的问题" class="headerlink" title="需要解决的问题:"></a>需要解决的问题:</h3><ol>
-<li>如何在脚本程序中登录到服务器中</li>
-<li>如何通过脚本在服务器上直接执行命令(非重点= =)</li>
-<li>如何对文件的状态进行判断，只下载最新的数据到本地</li>
-<li>文件的传输</li>
-</ol>
-<a id="more"></a>
-<hr>
-<h3 id="开发环境说明"><a href="#开发环境说明" class="headerlink" title="开发环境说明"></a>开发环境说明</h3><ul>
-<li>ubuntu 16.04.1 x86_64 </li>
-<li>python 2.7.2</li>
+        <p>记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。</p>
+<h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
+<li>ubuntu 16.04</li>
+<li>bochs 2.6.9</li>
 </ul>
-<hr>
-<h3 id="利用Paramiko进行ssh登录和下载"><a href="#利用Paramiko进行ssh登录和下载" class="headerlink" title="利用Paramiko进行ssh登录和下载"></a>利用Paramiko进行ssh登录和下载</h3><h4 id="paramiko安装"><a href="#paramiko安装" class="headerlink" title="paramiko安装"></a>paramiko安装</h4><p>具体可以访问<a href="http://www.paramiko.org/" target="_blank" rel="noopener">官网</a>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># paramiko 依赖于cryptography</span></span><br><span class="line"> pip install cryptography</span><br><span class="line"> pip install paramiko</span><br></pre></td></tr></table></figure></p>
-<h4 id="登录服务器"><a href="#登录服务器" class="headerlink" title="登录服务器"></a>登录服务器</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paramiko </span><br><span class="line"></span><br><span class="line">client = paramiko.SSHClient()</span><br><span class="line">client.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line"><span class="comment">#自己设置服务器的相关值</span></span><br><span class="line">client.connect(hostname=<span class="string">'xxx'</span>,port= <span class="number">22</span>, username=<span class="string">'xxx'</span>, password=<span class="string">'xxx'</span>)</span><br><span class="line"></span><br><span class="line">stdin, stdout, stderr = client.exec_command(<span class="string">'ls'</span>)</span><br><span class="line"></span><br><span class="line">result = stdout.read()</span><br><span class="line"><span class="comment">#打印result，用来测试是否连接成功</span></span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line">client.close()</span><br></pre></td></tr></table></figure>
-<p>这些函数的使用在官方API有说明，当然也可以直接搜索到。</p>
-<h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><p>官网API中指出，利用SFTP的<code>get()</code>方法可以进行下载。在前面的代码中，使用了<code>exec_command()</code>在服务器上执行shell命令，理论上，直接执行命令把输出存储在本地应该也是可以的。但我还是采用的第一种方式，因为简单。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:UTF-8</span></span><br><span class="line"><span class="keyword">import</span> paramiko </span><br><span class="line"></span><br><span class="line"><span class="comment">#ssh登录服务器</span></span><br><span class="line">client = paramiko.SSHClient()</span><br><span class="line">client.set_missing_host_key_policy(paramiko.AutoAddPolicy())</span><br><span class="line"></span><br><span class="line"><span class="comment">#相关参数设置</span></span><br><span class="line">client.connect(hostname=<span class="string">'xxxxx'</span>,port= <span class="number">22</span>, username=<span class="string">'xxxx'</span>, password=<span class="string">'xxxxx'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#服务器上的文件路径</span></span><br><span class="line">log_server = <span class="string">'/usr/local/nginx/logs/access.log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地存储路径</span></span><br><span class="line">log_client = <span class="string">'/home/mrsiz/test.log'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#服务器上执行的命令 </span></span><br><span class="line">count_line = <span class="string">'wc -l '</span> + log_server</span><br><span class="line"></span><br><span class="line">stdin, stdout, stderr = client.exec_command(count_line)</span><br><span class="line">result = stdout.read()</span><br><span class="line"><span class="comment">#本地打印结果</span></span><br><span class="line"><span class="keyword">print</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment">#从SSHClient中获得一个transport，因为sftp依赖于这个transport</span></span><br><span class="line">trans  = client.get_transport()</span><br><span class="line">sftp= paramiko.SFTPClient.from_transport(trans)</span><br><span class="line"></span><br><span class="line"><span class="comment">#下载文件</span></span><br><span class="line">sftp.get(log_server, log_client)</span><br><span class="line"></span><br><span class="line">client.close()</span><br></pre></td></tr></table></figure></p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>我想，如果要从服务器上获得文件，最暴力的方式就是直接人工登录到服务器，然后直接把数据拷贝到主机上就行了。但是为了更加简单，于是在网上找了python的这个库，直接用封装好的方法完成了文件的下载。到这里，其实已经解决了我最开始提到的1,2,4这三个问题，还有一个问题没有解决。对于这个问题，我在网上搜了相关资料和看了下paramiko提供的相关方法之后，采取了一个特别简单但又有点蠢的方法：直接在一定间隔时间段后重新下载文件。。。。。。。</p>
+<h2 id="问题及解决办法"><a href="#问题及解决办法" class="headerlink" title="问题及解决办法"></a>问题及解决办法</h2><p>1.<code>gui/libgui.a(x.o): undefined reference to symbol &#39;XSetForeground&#39;</code><br>解决：控制台下输入<code>sudo apt-get install xorg-dev</code></p>
+<p>2.<code>X11/Xlib.h: No such file or directory</code><br>解决：控制台下输入<code>sudo apt-get install libx11-dev</code><br><a id="more"></a><br>3.<code>&gt;&gt;PANIC&lt;&lt; bochsrc.txt:13: keyboard directive malformed.</code><br>解决：在配置文件 <strong>bochsrc.txt</strong> 中，设置<code>keyboard: keymap=/home/mrsiz/bochs/share/bochs/keymaps/x11-pc-de.map</code>   </p>
+<p>4.<code>&gt;&gt;PANIC&lt;&lt; bochsrc.txt:17: Bochs is not compiled with gdbstub support</code><br>解决：在最开始用<code>.configure</code>生成MakeFile配置文件的时候，如果没有添加gdb远程调试那个选项，但是又在配置文件中开启了远程调试这个功能，就会报这个错，直接注释掉配置文件中的<code>gdbstub</code>那一行</p>
+<p>5.连接时出现了没找到引用的情况<code>undefined reference</code><br>解决：在MakeFile文件中，修改<code>LIBS = -lX11 -lXtst  -lpthread</code>,一般只加这几个需要链接的库就行</p>
+<p>6.出现权限问题，比如不能写<br>解决：这个问题的出现是因为bochs这个文件夹是root级别的，当用普通用户权限运行./bochs的时候，因为权限不够就会造成这个问题，所以只要加上sudo就行。  </p>
+<p>7.启动盘的创建，在运行bochs的时候，需要有启动盘<br>解决：执行<code>./bximage</code>,差不多可以一路回车，也可以按照提示做简单的自定义修改</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为上面出现的问题都是我在解决之后，回过头来写的，所以可能在配置bochs过程中还有其他问题，因为忘记了，所以没有记录下来。在看了网上的相关配置之后，差不多是copy加上略微修改得到一份配置文件 <strong>bochsrc.txt</strong>,放在/bin/目录下，运行./bochs的时候会直接读这个配置文件。内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">megs: 32</span><br><span class="line"></span><br><span class="line">romimage: file=/home/mrsiz/bochs/share/bochs/BIOS-bochs-latest</span><br><span class="line">vgaromimage: file=/home/mrsiz/bochs/share/bochs/VGABIOS-lgpl-latest</span><br><span class="line"></span><br><span class="line">boot: disk </span><br><span class="line"></span><br><span class="line">log: bochs.out</span><br><span class="line"></span><br><span class="line">mouse: enabled=0</span><br><span class="line">keyboard: keymap=/home/mrsiz/bochs/share/bochs/keymaps/x11-pc-de.map</span><br><span class="line"></span><br><span class="line">ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14 </span><br><span class="line"></span><br><span class="line">#gdbstub: enabled=0, port=1234, text_base=0, data_base=0, bass_base=0 </span><br><span class="line">ata0-master: type=disk, path=&quot;hd60M.img&quot;, mode=flat</span><br></pre></td></tr></table></figure></p>
+<p>因为重点是搭建好一个可编译运行linux内核的环境，所以对于在使用bochs中所遇到的问题，采取的方针是：能正常运行就好。</p>
 
       
 
@@ -202,11 +196,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ssh</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
         		</li>
       		
 		</ul>
@@ -262,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mrsiz.github.io/2018/04/13/利用python登录服务器并下载文件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,18 +266,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/04/25/记拔牙这件大事/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          记拔牙这件大事
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/03/31/时间的流逝/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">时间的流逝</div>
+    <a href="/2018/04/28/类的内存布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">类的内存布局</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -326,7 +307,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://mrsiz.github.io/2018/04/13/利用python登录服务器并下载文件/",
+  id: "http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/",
   owner: 'MrSiz',
   repo: 'MrSiz.github.io',
   oauth: {
