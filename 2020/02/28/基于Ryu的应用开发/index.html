@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://mrsiz.github.io">
-  <title>Archives: 2018/6 | 提提的小窝</title>
+  <title>基于Ryu的应用开发 | 提提的小窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="提提的小窝">
-<meta property="og:url" content="http://mrsiz.github.io/archives/2018/06/index.html">
+  <meta name="description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
+<meta name="keywords" content="SDN,Ryu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Ryu的应用开发">
+<meta property="og:url" content="http://mrsiz.github.io/2020/02/28/基于Ryu的应用开发/index.html">
 <meta property="og:site_name" content="提提的小窝">
+<meta property="og:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
+<meta property="og:updated_time" content="2020-03-02T04:19:59.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="提提的小窝">
+<meta name="twitter:title" content="基于Ryu的应用开发">
+<meta name="twitter:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
   
     <link rel="alternative" href="/atom.xml" title="提提的小窝" type="application/atom+xml">
   
@@ -143,60 +148,198 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-基于Ryu的应用开发" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/20/linux下编译运行bochs/" class="archive-article-date">
-  	<time datetime="2018-06-20T12:23:30.714Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/20/linux下编译运行bochs/">linux下编译运行bochs</a>
+    <h1 class="article-title" itemprop="name">
+      基于Ryu的应用开发
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/02/28/基于Ryu的应用开发/" class="archive-article-date">
+  	<time datetime="2020-02-27T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Ryu控制器介绍"><a href="#Ryu控制器介绍" class="headerlink" title="Ryu控制器介绍"></a>Ryu控制器介绍</h3><p>Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。</p>
+<h3 id="Ryu的安装与使用"><a href="#Ryu的安装与使用" class="headerlink" title="Ryu的安装与使用"></a>Ryu的安装与使用</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>第一种方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% pip install ryu</span><br></pre></td></tr></table></figure></p>
+<p>第二种方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% git clone git://github.com/osrg/ryu.git</span><br><span class="line">% cd ryu; python ./setup.py install</span><br></pre></td></tr></table></figure></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在安装好Ryu之后，可以通过<code>ryu-manager appname.py</code>的方式运行Ryu应用程序。通常，Ryu的使用是与mininet相结合的，mininet的作用是创建网络拓扑，关于mininet的具体使用方式可以参考官网教程。</p>
+<h3 id="Ryu源码的目录结构"><a href="#Ryu源码的目录结构" class="headerlink" title="Ryu源码的目录结构"></a>Ryu源码的目录结构</h3><ul>
+<li><code>app/</code>:该目录下主要包含的是官方提供的应用例子。</li>
+<li><code>base/</code>:该目录下只有1个<code>app_manager.py</code>文件，其作用是Ryu应用的管理中心，用于加载Ryu应用程序，接受从App发过来的消息，同时也完成消息的路由。</li>
+<li><code>controller/</code>:该目录下主要实现了控制器和交换机之间的互联和事件处理。</li>
+<li><code>lib/</code>: 该目录下主要定义了需要使用到的基本数据结构，如dpid、mac和ip等数据结构。此外，如ICMP、DHCP和IGMP等协议也是在该目录下定义的。</li>
+<li><code>ofproto/</code>: 该目录下主要定义了与OpenFlow协议相关的数据结构，包含了不同版本OpenFlow协议的定义。</li>
+<li><code>topology/</code>: 该目录下定义了switch和host等相关的数据结构。</li>
+<li><code>services/</code>：该目录下主要包含了对BGP和vrrp的实现。</li>
+</ul>
+<h3 id="Ryu中关键变量和API的说明"><a href="#Ryu中关键变量和API的说明" class="headerlink" title="Ryu中关键变量和API的说明"></a>Ryu中关键变量和API的说明</h3><ul>
+<li><code>buffer_id</code>:该变量用于标记缓存在交换机中的数据报文id，通过bufferid将报文缓存在交换机中，减小性能开销。</li>
+<li><code>set_ev_cls()</code>：该装饰器函数主要用来监听相应的事件，在具体实现中常常写作:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span><br><span class="line">def packetin_handler(self, ev):</span><br><span class="line">    # 处理函数具体实现代码</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>set_ev_cls()</code>函数的第一个参数表示的是所监听的事件名，第二个参数表示所处的阶段。在上面的代码中，当Ryu和交换机握手过程（即hello, features request/reply, Set Config等）结束后(即处于<code>MAIN_DISPATCHER</code>阶段)，当收到<code>PacketIn</code>消息才会调用<code>packet_in_handler</code>处理函数。</p>
+<ul>
+<li><code>OFPFlowMod类</code>,该类主要是对<code>FlowMod</code>消息的封装，由控制器下发到交换机上,对流表规则进行相应的修改。</li>
+<li><code>DataPath类</code>,该类主要就是交换机的抽象描述，其中的<code>id</code>变量即唯一指定了数据层中的一个交换机。</li>
+<li><code>OFPInstructionActions类</code>，该类主要是流表动作的抽象，开发者构造具体的流表动作，如转发到其他所有端口。该动作被包含在FlowMod消息中。</li>
+</ul>
+<h3 id="编写基于IP转发的应用"><a href="#编写基于IP转发的应用" class="headerlink" title="编写基于IP转发的应用"></a>编写基于IP转发的应用</h3><p>Ryu的代码采用面向对象的风格进行编写的，在开发我们自己的应用时，只需要导入相关的包，然后继承<code>app_manager.RyuApp类</code>,即:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from ryu.base import app_manager</span><br><span class="line"></span><br><span class="line">class SIMPE_IP_FORWARD(app_manager.RyuApp):</span><br><span class="line">    OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]</span><br><span class="line">    def __init__(self, *args, **kwargs):</span><br><span class="line">        super(SIMPE_IP_FORWARD, self).__init__(*args, **kwargs)</span><br></pre></td></tr></table></figure></p>
+<p>通过这种方式就完成了APP的创建，然后我们需要添加默认规则到交换机上，因为交换机上的流表最开始是没有流规则的，而SDN交换机对数据包的处理全是基于流表规则进行的，如果没有流表规则，交换机则不知道该如何处理数据包，所以我们需要主动安装默认规则到交换机上，让交换机将不匹配的数据包上传到控制器上，交由控制器分析处理，代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 控制器与交换机建立连接时，下发默认规则到交换机上，默认将不匹配的流上传到控制器处理</span><br><span class="line">@set_ev_cls(ofp_event.EventOFPSwitchFeatures, CONFIG_DISPATCHER)</span><br><span class="line">def switch_features_handler(self, ev):</span><br><span class="line">    datapath = ev.msg.datapath</span><br><span class="line">    ofproto = datapath.ofproto</span><br><span class="line">    parser = datapath.ofproto_parser</span><br><span class="line">    match = parser.OFPMatch()</span><br><span class="line">    actions = [parser.OFPActionOutput(ofproto.OFPP_CONTROLLER)]</span><br><span class="line">    self.add_flow(datapath, 0, match, actions)</span><br></pre></td></tr></table></figure></p>
+<p>该<code>switch_features_handler()</code>函数作为应用的成员函数而存在，其中装饰器函数<code>set_ev_cls()</code>表示的是监听控制器与交换机建立时互发的消息，当交换机将自己的相关信息告诉给控制器的时候，将触发该函数，注意这个信息不是通过流规则匹配而上传到控制器的，而是在建立连接时产生的，所以此时交换机上是不存在流规则的。<code>parser.OFPActionOutput(ofproto.OFPP_CONTROLLER)</code>表示将匹配的数据包上传到控制器。</p>
+<p>当交换机上有了默认的流规则之后，遇到新流时，交换机将会产生<code>PacketIn</code>消息到控制器上，所以控制器必须对PacketIn消息进行处理，由此，我们需要添加处理函数如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 控制器处理收到的PacketIn消息</span><br><span class="line">@set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)</span><br><span class="line">def packetin_handler(self, ev):</span><br><span class="line">    # ...</span><br><span class="line">    if eth.ethertype == ether_types.ETH_TYPE_ARP:</span><br><span class="line">        arp_pkt = pkt.get_protocol(arp.arp)</span><br><span class="line">        dpid = datapath.id</span><br><span class="line">        src_mac = arp_pkt.src_mac</span><br><span class="line">        dst_mac = arp_pkt.dst_mac</span><br><span class="line">        temp = (dpid, src_mac, arp_pkt.dst_ip)</span><br><span class="line">    </span><br><span class="line">        if not self.flag[temp]:</span><br><span class="line">            self.flag[temp] = True</span><br><span class="line">            self.arp_port[temp] = in_port</span><br><span class="line">        elif self.flag[temp] and self.arp_port[temp] != in_port:</span><br><span class="line">            # 记录了的消息来自于同一交换机的不同端口，则不处理，以此避免网络风暴</span><br><span class="line">            return</span><br><span class="line">    # ...</span><br></pre></td></tr></table></figure></p>
+<p>上面的代码只是处理函数的部分函数，该部分代码的作用是通过对相应的端口进行记录，避免产生网络风暴。因为网络拓扑的结构可能是环形的，所以需要对数据包进行处理，避免重复转发，我们利用ARP报文，提取了相关交换机的MAC地址，通过对MAC地址和端口进行记录和对比，避免对报文的重复转发。在此之后，我们还需要处理带有IP地址的数据包，从而实现基于IP的地址转发，关键点即是下发基于IP地址匹配的流规则到交换机上，流规则匹配到了对应的数据包，则按照指令进行数据包转发，关键代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 1. 下发流规则到交换机</span><br><span class="line"># 2. 将数据包转发出去</span><br><span class="line">match = ofp_parser.OFPMatch(eth_type=0x800, in_port=in_port, ipv4_src=ip_pkt.src, ipv4_dst=ip_pkt.dst)</span><br><span class="line">actions = [ofp_parser.OFPActionOutput(out_port)]</span><br><span class="line">self.add_flow(datapath, 10, match, actions)</span><br><span class="line"></span><br><span class="line">data = None</span><br><span class="line">if msg.buffer_id == ofproto.OFP_NO_BUFFER:</span><br><span class="line">    data = msg.data</span><br><span class="line">out = ofp_parser.OFPPacketOut(datapath=datapath, buffer_id=msg.buffer_id,</span><br><span class="line">                          in_port=in_port, actions=actions, data=data)</span><br><span class="line">datapath.send_msg(out)</span><br></pre></td></tr></table></figure></p>
+<p>该部分代码在<code>packetin_handler()</code>对IP报文进行相关处理，主要是根据相关的记录，获取到出端口，然后下发匹配规则到交换机上，再转发出去。其中的匹配规则是通过<code>OFPMatch()</code>类所构造的，在其中主要就是指定ip地址。</p>
+<p>以上就是实现一个基于IP转发的Ryu应用的关键点，更多的细节可以参考:<a href="https://github.com/MrSiz/SDN/blob/master/ryu/simple_ip_forward.py。" target="_blank" rel="noopener">https://github.com/MrSiz/SDN/blob/master/ryu/simple_ip_forward.py。</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文主要对Ryu控制器进行了简单的介绍，并对实际开发一个Ryu应用进行了重点说明。在具体的实践过程中，大家可以在阅读Ryu源码的同时进行实际应用的开发，基于Python的简单以及良好的API接口，开发一个Ryu应用并非难事。</p>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p>[1] <a href="https://www.sdnlab.com/11688.html" target="_blank" rel="noopener">https://www.sdnlab.com/11688.html</a><br>[2] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a><br>[3] <a href="https://www.cnblogs.com/zxqstrong/p/4789105.html" target="_blank" rel="noopener">https://www.cnblogs.com/zxqstrong/p/4789105.html</a><br>[4] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境配置</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SDN</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Ryu</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mrsiz.github.io/2020/02/28/基于Ryu的应用开发/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/06/20/linux下编译运行bochs/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux下编译运行bochs</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://mrsiz.github.io/2020/02/28/基于Ryu的应用开发/",
+  owner: 'MrSiz',
+  repo: 'MrSiz.github.io',
+  oauth: {
+    client_id: '16419960244da72bcf76',
+    client_secret: '781d9ac73d477ac51e92b09a68af7ca6df1a3e82',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -219,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
