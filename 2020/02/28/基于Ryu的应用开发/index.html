@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://mrsiz.github.io/2020/02/28/基于Ryu的应用开发/index.html">
 <meta property="og:site_name" content="提提的小窝">
 <meta property="og:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
-<meta property="og:updated_time" content="2020-03-02T04:19:59.525Z">
+<meta property="og:updated_time" content="2020-03-02T04:27:21.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Ryu的应用开发">
 <meta name="twitter:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
@@ -171,7 +171,7 @@
         <h3 id="Ryu控制器介绍"><a href="#Ryu控制器介绍" class="headerlink" title="Ryu控制器介绍"></a>Ryu控制器介绍</h3><p>Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。</p>
 <h3 id="Ryu的安装与使用"><a href="#Ryu的安装与使用" class="headerlink" title="Ryu的安装与使用"></a>Ryu的安装与使用</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>第一种方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">% pip install ryu</span><br></pre></td></tr></table></figure></p>
 <p>第二种方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">% git clone git://github.com/osrg/ryu.git</span><br><span class="line">% cd ryu; python ./setup.py install</span><br></pre></td></tr></table></figure></p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在安装好Ryu之后，可以通过<code>ryu-manager appname.py</code>的方式运行Ryu应用程序。通常，Ryu的使用是与mininet相结合的，mininet的作用是创建网络拓扑，关于mininet的具体使用方式可以参考官网教程。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在安装好Ryu之后，可以通过<code>ryu-manager appname.py</code>的方式运行Ryu应用程序。通常，Ryu的使用是与mininet相结合的，mininet的作用是创建网络拓扑，关于mininet的具体使用方式可以参考官网教程。<br><a id="more"></a></p>
 <h3 id="Ryu源码的目录结构"><a href="#Ryu源码的目录结构" class="headerlink" title="Ryu源码的目录结构"></a>Ryu源码的目录结构</h3><ul>
 <li><code>app/</code>:该目录下主要包含的是官方提供的应用例子。</li>
 <li><code>base/</code>:该目录下只有1个<code>app_manager.py</code>文件，其作用是Ryu应用的管理中心，用于加载Ryu应用程序，接受从App发过来的消息，同时也完成消息的路由。</li>
@@ -444,15 +444,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SDN</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Ryu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
             
             <div class="clearfix"></div>
