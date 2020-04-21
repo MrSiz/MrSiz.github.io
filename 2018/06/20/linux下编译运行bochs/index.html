@@ -309,20 +309,31 @@
   
 
   
-  <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-<script src="https://billts.site/js/gitment.js"></script>
+  <!-- <div id="gitment-ctn"></div>  -->
+<div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
-var gitment = new Gitment({
-  id: "http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/",
-  owner: 'MrSiz',
-  repo: 'MrSiz.github.io',
-  oauth: {
-    client_id: '16419960244da72bcf76',
-    client_secret: '177816105b8d6d594674939a3c9b9a443225dd7b',
-  },
+// var gitment = new Gitment({
+//   id: "http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/",
+//   owner: 'MrSiz',
+//   repo: 'MrSiz.github.io',
+//   oauth: {
+//     client_id: '16419960244da72bcf76',
+//     client_secret: '177816105b8d6d594674939a3c9b9a443225dd7b',
+//   },
+// })
+var gitalk = new Gitalk({
+  clientID: 'GitHub Application Client ID',
+  clientSecret: 'GitHub Application Client Secret',
+  repo: 'GitHub repo',
+  owner: 'GitHub repo owner',
+  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+  id: location.pathname,      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
 })
-gitment.render('gitment-ctn')
+// gitment.render('gitment-ctn')
+gitalk.render('gitalk-container')
 </script>
 
   
@@ -422,11 +433,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SDN</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Ryu</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -438,7 +445,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">c++</a>
+                <a href="javascript:void(0)" class="js-tag color4">SDN</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ryu</a>
               </li>
             
             <div class="clearfix"></div>
