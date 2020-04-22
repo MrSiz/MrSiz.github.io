@@ -1,70 +1,198 @@
 <!DOCTYPE html>
-<html>
+
+
+  <html class="light page-post">
+
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    
-    <title>linux下编译运行bochs - Philosopher</title>
-    <meta charset="utf-8">
-    
-    <meta name="title" content="linux下编译运行bochs - Philosopher">
-    <meta name="description" content="">
-    <meta property="og:image" content="/favicon.png">
-    <meta property="og:image:width" content="200" />
-    <meta property="og:image:height" content="200" />
-    <link rel="shortcut icon" href="/favicon.png">
-    
-    <link rel="stylesheet"
-        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
+  <meta charset="utf-8">
+  
+  <title>linux下编译运行bochs | Philosopher</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="环境配置," />
+  
+
+  <meta name="description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
+<meta name="keywords" content="环境配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下编译运行bochs">
+<meta property="og:url" content="http://mrsiz.github.io/2018/06/20/linux下编译运行bochs/index.html">
+<meta property="og:site_name" content="Philosopher">
+<meta property="og:description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
+<meta property="og:updated_time" content="2018-03-27T15:23:13.932Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux下编译运行bochs">
+<meta name="twitter:description" content="记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。 安装环境 ubuntu 16.04 bochs 2.6.9  问题及解决办法1.gui/libgui.a(x.o): undefined reference to symbol &amp;#39;XSetForeground&amp;#39;解决：控制台下输入sudo apt-get install xorg-dev 2.X11/Xlib.h:">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
 
 <body>
-    <header class="header">
-    <div class="blog-title">
-        <a href="/" class="logo">Philosopher</a>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装环境"><span class="toc-text">安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题及解决办法"><span class="toc-text">问题及解决办法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-linux下编译运行bochs" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">linux下编译运行bochs</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.06.20</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>mrsiz</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
     </div>
-    <nav class="navbar">
-        <ul class="menu">
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/" class="menu-item-link">主页</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/archives" class="menu-item-link">归档</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/about" class="menu-item-link">关于</a>
-                
-            </li>
-            
-        </ul>
-    </nav>
-</header>
-    <main class="main">
-        <article class="post">
-    <div class="post-title">
-        <h1 class="title">linux下编译运行bochs</h2>
-    </div>
-    <div class="post-content">
-        <p>记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。</p>
+  </header>
+
+  <div class="article-content">
+    
+      <p>记录一下在安装和配置运行bochs的过程中遇见的问题，以及解决办法。</p>
 <h2 id="安装环境"><a href="#安装环境" class="headerlink" title="安装环境"></a>安装环境</h2><ul>
 <li>ubuntu 16.04</li>
 <li>bochs 2.6.9</li>
@@ -78,38 +206,159 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>因为上面出现的问题都是我在解决之后，回过头来写的，所以可能在配置bochs过程中还有其他问题，因为忘记了，所以没有记录下来。在看了网上的相关配置之后，差不多是copy加上略微修改得到一份配置文件 <strong>bochsrc.txt</strong>,放在/bin/目录下，运行./bochs的时候会直接读这个配置文件。内容如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs undefined">megs: 32<br><br>romimage: file=/home/mrsiz/bochs/share/bochs/BIOS-bochs-latest<br>vgaromimage: file=/home/mrsiz/bochs/share/bochs/VGABIOS-lgpl-latest<br><br>boot: disk <br><br>log: bochs.out<br><br>mouse: enabled=0<br>keyboard: keymap=/home/mrsiz/bochs/share/bochs/keymaps/x11-pc-de.map<br><br>ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14 <br><br>#gdbstub: enabled=0, port=1234, text_base=0, data_base=0, bass_base=0 <br>ata0-master: type=disk, path=&quot;hd60M.img&quot;, mode=flat<br></code></pre></td></tr></table></figure></p>
 <p>因为重点是搭建好一个可编译运行linux内核的环境，所以对于在使用bochs中所遇到的问题，采取的方针是：能正常运行就好。</p>
 
-    </div>
-    <div class="post-meta">
-        <span class="post-time">2018/06/20</span>
-    </div>
+    
+  </div>
+
 </article>
 
-<div class="prev_next">
-    <nav id="prev_next">
 
-<div class="prev">
-    
-    <p>上一篇</p>
-    <a href="/2020/02/28/基于Ryu的应用开发/"><div class="article-nav-title">基于Ryu的应用开发</div></a>
-    
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">想啥呢</span>
+      <div class="donation-body">
+        <div class="tip text-center">想啥呢</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/04/28/类的内存布局/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2020/02/28/基于Ryu的应用开发/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
 </div>
-<div class="next">
-    
-    <p>下一篇</p>
-    <a href="/2018/04/28/类的内存布局/"><div class="article-nav-title">类的内存布局</div></a>
-    
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
 </div>
 
-</nav>
-</div>
 
-<div class="post-comment">
+
+  
+      <div class="fexo-comments comments-post">
     
 
+    
 
+    
+    
 
-</div>
-    </main>
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 </body>
-
 </html>

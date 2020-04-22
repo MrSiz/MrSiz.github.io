@@ -1,70 +1,198 @@
 <!DOCTYPE html>
-<html>
+
+
+  <html class="light page-post">
+
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    
-    <title>类的内存布局 - Philosopher</title>
-    <meta charset="utf-8">
-    
-    <meta name="title" content="类的内存布局 - Philosopher">
-    <meta name="description" content="">
-    <meta property="og:image" content="/favicon.png">
-    <meta property="og:image:width" content="200" />
-    <meta property="og:image:height" content="200" />
-    <link rel="shortcut icon" href="/favicon.png">
-    
-    <link rel="stylesheet"
-        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
+  <meta charset="utf-8">
+  
+  <title>类的内存布局 | Philosopher</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="c++," />
+  
+
+  <meta name="description" content="探讨C++中的类的内存布局，对于这个问题，网上可以搜索到很多的文章了。但是自己还是打算测试一下，权当是检验真理。 测试环境 VS2017 (Debug模式下x86)  本文主要是对多继承的测试，首先看一下代码.">
+<meta name="keywords" content="c++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类的内存布局">
+<meta property="og:url" content="http://mrsiz.github.io/2018/04/28/类的内存布局/index.html">
+<meta property="og:site_name" content="Philosopher">
+<meta property="og:description" content="探讨C++中的类的内存布局，对于这个问题，网上可以搜索到很多的文章了。但是自己还是打算测试一下，权当是检验真理。 测试环境 VS2017 (Debug模式下x86)  本文主要是对多继承的测试，首先看一下代码.">
+<meta property="og:updated_time" content="2020-04-21T05:24:07.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类的内存布局">
+<meta name="twitter:description" content="探讨C++中的类的内存布局，对于这个问题，网上可以搜索到很多的文章了。但是自己还是打算测试一下，权当是检验真理。 测试环境 VS2017 (Debug模式下x86)  本文主要是对多继承的测试，首先看一下代码.">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
 
 <body>
-    <header class="header">
-    <div class="blog-title">
-        <a href="/" class="logo">Philosopher</a>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试环境"><span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它问题"><span class="toc-text">其它问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-为什么类B和C有自己的虚函数的时候，会增加一个vfptr-而D有自己的虚函数的时候不会再增加一个vfptr"><span class="toc-text">1. 为什么类B和C有自己的虚函数的时候，会增加一个vfptr,而D有自己的虚函数的时候不会再增加一个vfptr?</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-如何直接调用一个虚函数"><span class="toc-text">2. 如何直接调用一个虚函数</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-类的内存布局" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">类的内存布局</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2018.04.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>mrsiz</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
     </div>
-    <nav class="navbar">
-        <ul class="menu">
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/" class="menu-item-link">主页</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/archives" class="menu-item-link">归档</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/about" class="menu-item-link">关于</a>
-                
-            </li>
-            
-        </ul>
-    </nav>
-</header>
-    <main class="main">
-        <article class="post">
-    <div class="post-title">
-        <h1 class="title">类的内存布局</h2>
-    </div>
-    <div class="post-content">
-        <p>探讨C++中的类的内存布局，对于这个问题，网上可以搜索到很多的文章了。但是自己还是打算测试一下，权当是检验真理。</p>
+  </header>
+
+  <div class="article-content">
+    
+      <p>探讨C++中的类的内存布局，对于这个问题，网上可以搜索到很多的文章了。但是自己还是打算测试一下，权当是检验真理。</p>
 <h3 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h3><ul>
 <li>VS2017 (Debug模式下x86)</li>
 </ul>
@@ -80,38 +208,159 @@
 <h4 id="2-如何直接调用一个虚函数"><a href="#2-如何直接调用一个虚函数" class="headerlink" title="2. 如何直接调用一个虚函数"></a>2. 如何直接调用一个虚函数</h4><p>一个简单示例:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstdlib&gt;</span></span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> &#123;</span><br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">void</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"hello Test\n"</span>;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-keyword">int</span> <span class="hljs-title">func2</span><span class="hljs-params">()</span> </span>&#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>	&#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span><br></span>&#123;<br>	Test a;<br>	<span class="hljs-comment">//通过类型转换获得虚表的地址</span><br>	<span class="hljs-keyword">auto</span> vtable = (<span class="hljs-keyword">intptr_t</span>*)(*(<span class="hljs-keyword">intptr_t</span>*)(&amp;a));<br><br>	<span class="hljs-keyword">auto</span> func1 = (<span class="hljs-keyword">void</span>(*)())vtable[<span class="hljs-number">0</span>];<br>	<span class="hljs-keyword">auto</span> func2 = (<span class="hljs-keyword">int</span>(*)())vtable[<span class="hljs-number">1</span>];<br>	func1();<br>	<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; func2() &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;<br><br>	system(<span class="hljs-string">"pause"</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure></p>
 <p>通过直接获得类中的vfptr中的地址，然后再通过类型的转换，获得虚函数表的地址，然后再从虚函数表中获得函数地址，最后调用即可。进行类型转换的原因是因为需要对指针解引用，而指针所指向的类型影响到了解引用时的内存大小，所以需要进行合理地类型转换，否则会出错的。</p>
 
-    </div>
-    <div class="post-meta">
-        <span class="post-time">2018/04/28</span>
-    </div>
+    
+  </div>
+
 </article>
 
-<div class="prev_next">
-    <nav id="prev_next">
 
-<div class="prev">
-    
-    <p>上一篇</p>
-    <a href="/2018/06/20/linux下编译运行bochs/"><div class="article-nav-title">linux下编译运行bochs</div></a>
-    
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">想啥呢</span>
+      <div class="donation-body">
+        <div class="tip text-center">想啥呢</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/04/13/利用python登录服务器并下载文件/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2018/06/20/linux下编译运行bochs/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
 </div>
-<div class="next">
-    
-    <p>下一篇</p>
-    <a href="/2018/04/13/利用python登录服务器并下载文件/"><div class="article-nav-title">利用python登录服务器并下载文件</div></a>
-    
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
 </div>
 
-</nav>
-</div>
 
-<div class="post-comment">
+
+  
+      <div class="fexo-comments comments-post">
     
 
+    
 
+    
+    
 
-</div>
-    </main>
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 </body>
-
 </html>

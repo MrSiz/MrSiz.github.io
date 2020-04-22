@@ -1,70 +1,198 @@
 <!DOCTYPE html>
-<html>
+
+
+  <html class="light page-post">
+
+
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    
-    <title>基于Ryu的应用开发 - Philosopher</title>
-    <meta charset="utf-8">
-    
-    <meta name="title" content="基于Ryu的应用开发 - Philosopher">
-    <meta name="description" content="">
-    <meta property="og:image" content="/favicon.png">
-    <meta property="og:image:width" content="200" />
-    <meta property="og:image:height" content="200" />
-    <link rel="shortcut icon" href="/favicon.png">
-    
-    <link rel="stylesheet"
-        href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/arduino-light.min.css">
-    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    
-    <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
+  <meta charset="utf-8">
+  
+  <title>基于Ryu的应用开发 | Philosopher</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="SDN,Ryu," />
+  
+
+  <meta name="description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
+<meta name="keywords" content="SDN,Ryu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Ryu的应用开发">
+<meta property="og:url" content="http://mrsiz.github.io/2020/02/28/基于Ryu的应用开发/index.html">
+<meta property="og:site_name" content="Philosopher">
+<meta property="og:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
+<meta property="og:updated_time" content="2020-04-22T06:27:32.964Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Ryu的应用开发">
+<meta name="twitter:description" content="Ryu控制器介绍Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。 Ryu的安装与使用安装第一种方式:1% pip install">
+
+  
+
+  
+    <link rel="icon" href="/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
 
 <body>
-    <header class="header">
-    <div class="blog-title">
-        <a href="/" class="logo">Philosopher</a>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ryu控制器介绍"><span class="toc-text">Ryu控制器介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ryu的安装与使用"><span class="toc-text">Ryu的安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ryu源码的目录结构"><span class="toc-text">Ryu源码的目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ryu中关键变量和API的说明"><span class="toc-text">Ryu中关键变量和API的说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写基于IP转发的应用"><span class="toc-text">编写基于IP转发的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-基于Ryu的应用开发" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">基于Ryu的应用开发</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2020.02.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>mrsiz</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
     </div>
-    <nav class="navbar">
-        <ul class="menu">
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/" class="menu-item-link">主页</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/archives" class="menu-item-link">归档</a>
-                
-            </li>
-            
-            
-            
-            <li class="menu-item">
-                
-                <a href="/about" class="menu-item-link">关于</a>
-                
-            </li>
-            
-        </ul>
-    </nav>
-</header>
-    <main class="main">
-        <article class="post">
-    <div class="post-title">
-        <h1 class="title">基于Ryu的应用开发</h2>
-    </div>
-    <div class="post-content">
-        <h3 id="Ryu控制器介绍"><a href="#Ryu控制器介绍" class="headerlink" title="Ryu控制器介绍"></a>Ryu控制器介绍</h3><p>Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。</p>
+  </header>
+
+  <div class="article-content">
+    
+      <h3 id="Ryu控制器介绍"><a href="#Ryu控制器介绍" class="headerlink" title="Ryu控制器介绍"></a>Ryu控制器介绍</h3><p>Ryu控制器是日本NTT公司使用Python语言开发的一款开源SDN/OpenFlow控制器。Ryu提供了简单的API接口，开发人员可以方便地编写网络控制程序。Ryu支持管理网络设备的各种协议，如OpenFlow、Netconf和OF-config等协议。此外，Ryu还被整合到了OpenStack的Neutron中。</p>
 <h3 id="Ryu的安装与使用"><a href="#Ryu的安装与使用" class="headerlink" title="Ryu的安装与使用"></a>Ryu的安装与使用</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>第一种方式:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">%</span> pip install ryu<br></code></pre></td></tr></table></figure></p>
 <p>第二种方式:<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">%</span> git clone git://github.com/osrg/ryu.git<br><span class="hljs-meta">%</span> cd ryu; python ./setup.py install<br></code></pre></td></tr></table></figure></p>
 <h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在安装好Ryu之后，可以通过<code>ryu-manager appname.py</code>的方式运行Ryu应用程序。通常，Ryu的使用是与mininet相结合的，mininet的作用是创建网络拓扑，关于mininet的具体使用方式可以参考官网教程。<br><a id="more"></a></p>
@@ -96,37 +224,161 @@
 <p>该部分代码在<code>packetin_handler()</code>对IP报文进行相关处理，主要是根据相关的记录，获取到出端口，然后下发匹配规则到交换机上，再转发出去。其中的匹配规则是通过<code>OFPMatch()</code>类所构造的，在其中主要就是指定ip地址。</p>
 <p>以上就是实现一个基于IP转发的Ryu应用的关键点，更多的细节可以参考:<a href="https://github.com/MrSiz/SDN/blob/master/ryu/simple_ip_forward.py。" target="_blank" rel="noopener">https://github.com/MrSiz/SDN/blob/master/ryu/simple_ip_forward.py。</a></p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本文主要对Ryu控制器进行了简单的介绍，并对实际开发一个Ryu应用进行了重点说明。在具体的实践过程中，大家可以在阅读Ryu源码的同时进行实际应用的开发，基于Python的简单以及良好的API接口，开发一个Ryu应用并非难事。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><p>[1] <a href="https://www.sdnlab.com/11688.html" target="_blank" rel="noopener">https://www.sdnlab.com/11688.html</a><br>[2] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a><br>[3] <a href="https://www.cnblogs.com/zxqstrong/p/4789105.html" target="_blank" rel="noopener">https://www.cnblogs.com/zxqstrong/p/4789105.html</a><br>[4] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a></p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>[1] <a href="https://www.sdnlab.com/11688.html" target="_blank" rel="noopener">https://www.sdnlab.com/11688.html</a><br>[2] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a><br>[3] <a href="https://www.cnblogs.com/zxqstrong/p/4789105.html" target="_blank" rel="noopener">https://www.cnblogs.com/zxqstrong/p/4789105.html</a><br>[4] <a href="https://www.cnblogs.com/fjlinww/p/11904076.html" target="_blank" rel="noopener">https://www.cnblogs.com/fjlinww/p/11904076.html</a></p>
 
-    </div>
-    <div class="post-meta">
-        <span class="post-time">2020/02/28</span>
-    </div>
+    
+  </div>
+
 </article>
 
-<div class="prev_next">
-    <nav id="prev_next">
 
-<div class="prev">
-    
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">想啥呢</span>
+      <div class="donation-body">
+        <div class="tip text-center">想啥呢</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+          <li class="item">
+            
+            <img src="" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2018/06/20/linux下编译运行bochs/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
 </div>
-<div class="next">
-    
-    <p>下一篇</p>
-    <a href="/2018/06/20/linux下编译运行bochs/"><div class="article-nav-title">linux下编译运行bochs</div></a>
-    
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
 </div>
 
-</nav>
-</div>
 
-<div class="post-comment">
+
+  
+      <div class="fexo-comments comments-post">
     
 
+    
 
+    
+    
 
-</div>
-    </main>
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 </body>
-
 </html>
